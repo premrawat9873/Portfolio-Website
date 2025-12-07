@@ -843,10 +843,12 @@ export default function Home() {
           >
             <div 
               ref={marqueeRef}
-              className="flex gap-8 animate-marquee"
+              className="flex gap-8 animate-marquee md:gap-8 gap-6"
               style={{
                 animationPlayState: isHoveringMarquee ? 'paused' : 'running',
                 transition: 'animation-play-state 0.2s ease',
+                // Faster on mobile, unchanged on desktop
+                animationDuration: windowSize.width < 768 ? '12s' : '20s',
               }}
             >
               {[...techLogos, ...techLogos].map((tech, index) => (
@@ -935,7 +937,7 @@ export default function Home() {
                   </div>
                   
                   {/* Action Links */}
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 flex-wrap max-w-full md:max-w-none">
                     {project.links.code && (
                       <a
                         href={project.links.code}
