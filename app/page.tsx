@@ -658,7 +658,7 @@ export default function Home() {
               transformStyle: 'preserve-3d'
             }}>
               <a
-                href="https://github.com/Prem-Rawat-here"
+                href="https://github.com/premrawat9873/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full border border-gray-300 hover:border-indigo-500 hover:bg-gray-100 transition-all duration-300 group transform-gpu hover:scale-110 hover:rotate-12"
@@ -666,7 +666,7 @@ export default function Home() {
                 <Github className="h-6 w-6 text-gray-600 group-hover:text-indigo-600 transition-colors" />
               </a>
               <a
-                href="https://www.linkedin.com/in/prem-rawat-0b9174259/"
+                href="https://www.linkedin.com/in/prem-r98733"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full border border-gray-300 hover:border-indigo-500 hover:bg-gray-100 transition-all duration-300 group transform-gpu hover:scale-110 hover:rotate-12"
@@ -684,11 +684,16 @@ export default function Home() {
         </div>
 
         {/* Fixed Scroll indicator - Properly centered */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2" style={{ transform: 'translateZ(60px)' }}>
+        <div
+          className="absolute bottom-8 left-1/2"
+          style={{ transform: 'translateX(-50%) translateZ(60px)' }}
+        >
           <div
-            className={`flex flex-col items-center gap-2 cursor-pointer group transform-gpu hover:scale-110 ${isHeroVisible ? "animate-fade-up" : "opacity-0"}`}
+            className={`flex flex-col items-center gap-2 cursor-pointer group transform-gpu hover:scale-110 ${
+              isHeroVisible ? "animate-fade-up" : "opacity-0"
+            }`}
             style={{ animationDelay: "1s" }}
-            onClick={() => scrollToSection("about")}
+            onClick={() => scrollToSection("#about")}
           >
             <span className="text-sm text-gray-600 group-hover:text-indigo-600 transition-colors">
               Scroll Down
@@ -997,7 +1002,7 @@ export default function Home() {
               Want to see more projects?
             </p>
             <a
-              href="https://github.com/premrawat9873"
+              href="https://github.com/premrawat9873/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white font-semibold py-3 px-6 rounded-lg hover:shadow-xl hover:shadow-indigo-500/25 transform hover:scale-105 transition-all duration-300"
@@ -1225,7 +1230,7 @@ export default function Home() {
                 <h3 className="text-xl font-bold text-gray-900">Connect on social</h3>
                 <div className="flex gap-4">
                   <a
-                    href="https://github.com/Prem-Rawat-here"
+                    href="https://github.com/premrawat9873/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 bg-white/80 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-white hover:border-indigo-300 transition-all duration-300 group transform-gpu hover:scale-110 hover:rotate-12 shadow-md"
@@ -1233,7 +1238,7 @@ export default function Home() {
                     <Github className="w-6 h-6 text-gray-600 group-hover:text-indigo-600 transition-colors" />
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/prem-rawat-0b9174259/"
+                    href="https://www.linkedin.com/in/prem-r98733"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 bg-white/80 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-white hover:border-indigo-300 transition-all duration-300 group transform-gpu hover:scale-110 hover:rotate-12 shadow-md"
