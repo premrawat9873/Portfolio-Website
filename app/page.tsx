@@ -1125,7 +1125,7 @@ export default function Home() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:bg-white transition-all duration-300 transform-gpu focus:scale-105"
-                        placeholder="John Doe"
+                        placeholder="Send me a message"
                       />
                     </div>
 
