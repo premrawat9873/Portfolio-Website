@@ -345,7 +345,7 @@ export default function Home() {
           "Real-time balance updates",
           "User search functionality"
         ],
-        links: { code: "#", demo: "#" }
+        links: { code: "https://github.com/premrawat9873/Wallet_Website", demo: "https://project.prem-rawat.me" }
       },
       {
         title: "Course Selling API",
@@ -361,7 +361,7 @@ export default function Home() {
           "Admin panel APIs",
           "Course content management"
         ],
-        links: { code: "#", demo: "#" }
+        links: { code: "https://github.com/premrawat9873/Online-Course-Selling-API" }
       },
       {
         title: "Algorithm Visualizer",
@@ -377,7 +377,7 @@ export default function Home() {
           "Real-time algorithm steps",
           "Interactive comparison tools"
         ],
-        links: { code: "#", demo: "#" }
+        links: { code: "https://github.com/premrawat9873/Huffman-LZW-Visualizer", demo: "https://daa.prem-rawat.me/" }
       },
     ],
     []
@@ -702,14 +702,11 @@ export default function Home() {
       <section
         id="about"
         ref={aboutSectionRef}
-        className="py-24 relative overflow-hidden bg-white/50"
+        className="py-12 relative overflow-hidden bg-white/50"
       >
         <div className="mx-auto max-w-6xl px-6">
           {/* Section Header */}
           <div className={`text-center mb-16 ${isAboutVisible ? "animate-fade-up" : "opacity-0"}`}>
-            <span className="font-mono text-indigo-600 text-sm">
-              {"<section id=\"about\">"}
-            </span>
             <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
               About <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Me</span>
             </h2>
@@ -804,13 +801,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          {/* Closing tag */}
-          <div className={`text-center mt-16 ${isAboutVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "1s" }}>
-            <span className="font-mono text-indigo-600 text-sm">
-              {"</section>"}
-            </span>
-          </div>
         </div>
       </section>
 
@@ -818,7 +808,7 @@ export default function Home() {
       <section
         id="skills"
         ref={skillsSectionRef}
-        className="py-24 bg-white/70 relative overflow-hidden"
+        className="py-12 bg-white/70 relative overflow-hidden"
         onMouseEnter={() => setIsHoveringSkill(true)}
         onMouseLeave={() => setIsHoveringSkill(false)}
       >
@@ -830,9 +820,6 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 relative z-10">
           {/* Section Header */}
           <div className={`text-center mb-16 ${isSkillsVisible ? "animate-fade-up" : "opacity-0"}`}>
-            <span className="font-mono text-indigo-600 text-sm">
-              {"<section id=\"skills\">"}
-            </span>
             <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
               Skills & <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Tech Stack</span>
             </h2>
@@ -911,18 +898,11 @@ export default function Home() {
               </div>
             ))}
           </div>
-
-          {/* Closing tag */}
-          <div className={`text-center mt-16 ${isSkillsVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "1s" }}>
-            <span className="font-mono text-indigo-600 text-sm">
-              {"</section>"}
-            </span>
-          </div>
         </div>
       </section>
 
       {/* Projects - Light Theme */}
-      <section id="projects" className="mx-auto max-w-6xl px-6 py-16 bg-white/50">
+      <section id="projects" className="mx-auto max-w-6xl px-6 py-8 bg-white/50">
         <div className="flex items-end justify-between mb-8">
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">Featured Projects</h2>
           <a href="#contact" className="text-sm text-gray-600 hover:text-gray-900 transition">View Resume</a>
@@ -1009,12 +989,30 @@ export default function Home() {
             </div>
           ))}
         </div>
+
+        {/* GitHub CTA Section */}
+        <div className="mt-12 text-center">
+          <div className="inline-flex flex-col sm:flex-row gap-4 items-center">
+            <p className="text-gray-700 font-medium">
+              Want to see more projects?
+            </p>
+            <a
+              href="https://github.com/premrawat9873"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white font-semibold py-3 px-6 rounded-lg hover:shadow-xl hover:shadow-indigo-500/25 transform hover:scale-105 transition-all duration-300"
+            >
+              <Github className="w-5 h-5" />
+              View All Projects on GitHub
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* Certifications Section */}
       <section
         id="certifications"
-        className="py-24 bg-white/60 relative overflow-hidden"
+        className="py-12 bg-white/60 relative overflow-hidden"
       >
         <div className="absolute inset-0 opacity-25">
           <div className="bg-grid-light absolute inset-0" />
@@ -1022,9 +1020,6 @@ export default function Home() {
 
         <div className="mx-auto max-w-6xl px-6 relative z-10">
           <div className="text-center mb-16">
-            <span className="font-mono text-indigo-600 text-sm">
-              {"<section id=\"certifications\">"}
-            </span>
             <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
               Certifications
             </h2>
@@ -1084,12 +1079,6 @@ export default function Home() {
               </article>
             ))}
           </div>
-
-          <div className="text-center mt-16">
-            <span className="font-mono text-indigo-600 text-sm">
-              {"</section>"}
-            </span>
-          </div>
         </div>
       </section>
 
@@ -1097,7 +1086,7 @@ export default function Home() {
       <section
         id="contact"
         ref={contactSectionRef}
-        className="py-24 relative overflow-hidden bg-white/70"
+        className="py-12 relative overflow-hidden bg-white/70"
       >
         {/* Background decoration */}
         <div className="absolute inset-0">
@@ -1108,9 +1097,6 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 relative z-10">
           {/* Section Header */}
           <div className={`text-center mb-16 ${isContactVisible ? "animate-fade-up" : "opacity-0"}`}>
-            <span className="font-mono text-indigo-600 text-sm">
-              {"<section id=\"contact\">"}
-            </span>
             <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
               Let's <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Connect</span>
             </h2>
@@ -1126,7 +1112,7 @@ export default function Home() {
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-1000"></div>
                 <div className="relative bg-white/90 rounded-2xl border border-gray-200 p-8 transform-gpu transition-all duration-300 hover:scale-105 shadow-lg">
-                  <h3 className="text-2xl font-bold mb-6 text-gray-900">Send me a message</h3>
+                  <h3 className="text-2xl font-bold mb-6 text-gray-900">Let's Start a Conversation</h3>
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="group">
@@ -1272,22 +1258,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          {/* Closing tag */}
-          <div className={`text-center mt-16 ${isContactVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "1s" }}>
-            <span className="font-mono text-indigo-600 text-sm">
-              {"</section>"}
-            </span>
-          </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="mt-12 border-t border-gray-200 bg-white/80">
-        <div className="mx-auto max-w-6xl px-6 py-8 text-sm text-gray-600">
-          © {new Date().getFullYear()} Prem Rawat. Built with Next.js & Tailwind.
-        </div>
-      </footer>
 
       <style>{`
         @keyframes marquee {
