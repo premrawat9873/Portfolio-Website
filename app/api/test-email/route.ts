@@ -7,7 +7,7 @@ export async function GET() {
   try {
     const result = await resend.emails.send({
       from: 'no-reply@prem-rawat.me',
-      to: 'premrawat9873@gmail.com',
+      to: 'premrawat.dev@gmail.com',
       subject: 'TEST EMAIL',
       text: 'This is a test.',
     });
