@@ -283,15 +283,37 @@ export default function Home() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitMessage('');
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setSubmitMessage('Thank you for your message! I\'ll get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
-    
-    setTimeout(() => setSubmitMessage(''), 5000);
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000); // 10s timeout
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+        signal: controller.signal,
+      });
+
+      if (!response.ok) {
+        const err = await response.json().catch(() => ({} as any));
+        throw new Error(err?.error || `HTTP error ${response.status}`);
+      }
+
+      const data: { success: boolean; message: string } = await response.json();
+      setSubmitMessage(data.message || 'Thank you for your message! I\'ll get back to you soon.');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error: unknown) {
+      const msg = (error as Error)?.name === 'AbortError'
+        ? 'Request timed out. Please try again.'
+        : 'Network error. Please try again.';
+      console.error('Form submission error:', error);
+      setSubmitMessage(msg);
+    } finally {
+      clearTimeout(timeout);
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitMessage(''), 5000);
+    }
   };
 
   const scrollToSection = (href: string) => {
@@ -634,7 +656,7 @@ export default function Home() {
             }}>
               <button
                 className="group bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white font-semibold py-3 px-8 rounded-lg hover:shadow-xl hover:shadow-indigo-500/25 transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 transform-gpu hover:rotate-1"
-                onClick={() => scrollToSection("projects")}
+                onClick={() => scrollToSection("#projects")}
                 style={{
                   boxShadow: `${mousePosition.x * 0.01}px ${mousePosition.y * 0.01}px 40px rgba(99, 102, 241, 0.2)`,
                 }}
@@ -1132,7 +1154,7 @@ export default function Home() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:bg-white transition-all duration-300 transform-gpu focus:scale-105"
-                        placeholder="Send me a message"
+                        placeholder="Enter your name"
                       />
                     </div>
 
@@ -1146,7 +1168,7 @@ export default function Home() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:bg-white transition-all duration-300 transform-gpu focus:scale-105"
-                        placeholder="john@example.com"
+                        placeholder="Enter your email"
                       />
                     </div>
 
