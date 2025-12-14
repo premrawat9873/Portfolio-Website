@@ -123,7 +123,17 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  // Removed cursorPosition state in favor of smooth RAF-based transforms
+  // const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+
+  // Cursor refs and animation state
+  const cursorInnerRef = useRef<HTMLDivElement | null>(null);
+  const cursorOuterRef = useRef<HTMLDivElement | null>(null);
+  const targetPosRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+  const currentInnerRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+  const currentOuterRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+  const rafIdRef = useRef<number | null>(null);
+  const scaleRef = useRef<number>(1);
   const [isHovering, setIsHovering] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -140,7 +150,6 @@ export default function Home() {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
-      setCursorPosition({ x: e.clientX, y: e.clientY });
     };
 
     const handleMouseEnter = () => setIsHovering(true);
@@ -429,24 +438,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen p-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900 overflow-hidden">
-      {/* Custom Cursor */}
-      <div
-        className={`fixed w-6 h-6 rounded-full pointer-events-none z-50 transition-all duration-100 ease-out ${
-          isHovering ? 'bg-indigo-500 scale-150' : 'bg-gray-900 scale-100'
-        }`}
-        style={{
-          left: `${cursorPosition.x - 12}px`,
-          top: `${cursorPosition.y - 12}px`,
-          mixBlendMode: 'difference',
-        }}
-      />
-      <div
-        className="fixed w-12 h-12 rounded-full border border-gray-400 pointer-events-none z-40 transition-all duration-200 ease-out"
-        style={{
-          left: `${cursorPosition.x - 24}px`,
-          top: `${cursorPosition.y - 24}px`,
-        }}
-      />
+      {/* Custom Cursor removed */}
 
       {/* Enhanced Navbar */}
       <nav
@@ -1322,14 +1314,9 @@ export default function Home() {
           background-size: 24px 24px;
         }
         
-        /* Hide default cursor */
-        * {
-          cursor: none !important;
-        }
-        
-        /* Show default cursor on inputs and text areas */
-        input, textarea, button, a {
-          cursor: pointer !important;
+        /* Allow default cursor globally (removed rules that forced cursor: none) */
+        html, body, * {
+          cursor: auto !important;
         }
       `}</style>
     </div>
