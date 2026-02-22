@@ -379,7 +379,7 @@ export default function Home() {
           "Integrated blockchain audit layer for immutable logging of verified complaint resolutions.",
           "Used Supabase as a unified backend for authentication, data storage, and scalability.",
         ],
-        links: { code: "#" },
+        links: { code: "https://github.com/premrawat9873/CivicChain_Hack-Winter" },
       },
       {
         title: "MokeMoney",
@@ -395,7 +395,7 @@ export default function Home() {
           "Ensured ACID-safe wallet transfers using Mongoose atomic transactions.",
           "Optimized database load by 60% with server-side pagination.",
         ],
-        links: { code: "https://github.com/premrawat9873/Wallet_Website" },
+        links: { code: "https://github.com/premrawat9873/Wallet_Website", demo: "https://project.prem-rawat.me/" },
       },
       {
         title: "Online-Course-Selling-API",
@@ -429,12 +429,27 @@ export default function Home() {
     issuer: "Udemy & Harkirat Singh Cohort 3",
     date: "2024",
     skills: ["React", "Node.js", "Express", "MongoDB", "MERN Stack"],
+    link: "https://drive.google.com/file/d/1vpdxVReOdJMRAvRQMAQQpw2tWB271bVh/view?usp=drive_link",
   },
   {
     title: "Data Structures & Algorithms (DSA)",
     issuer: "CodeHelp Supreme 3.0",
     date: "2024",
     skills: ["Data Structures", "Algorithms", "Problem Solving", "Complexity Analysis"],
+    link: "https://drive.google.com/file/d/1ljFiCMED-95iBxQgCguXOKq-LGg-c2y3/view?usp=drive_link",
+  },
+  {
+    title: "Finalist — Hack The Winter – The Second Wave (National Level Hackathon)",
+    issuer: "Hack The Winter",
+    date: "2025",
+    skills: [],
+    link: "https://drive.google.com/file/d/12C8BFNr5dkI7Ggr6pEEomiUNIHan4STQ/view?usp=drive_link",
+  },
+  {
+    title: "Finalist — Zinnovatio 3.0 Hackathon",
+    issuer: "Zinnovatio",
+    date: "2024",
+    skills: [],
   },
 ];
 
@@ -494,7 +509,7 @@ export default function Home() {
               ))}
               <button 
                 className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white font-semibold py-2 px-4 rounded-lg hover:shadow-lg hover:shadow-indigo-500/25 transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 text-sm"
-                onClick={() => window.open('/resume.pdf', '_blank')}
+                onClick={() => window.open('https://drive.google.com/file/d/1tJTVVEbr1EISY_PgGjYvCkU1T0ce5Yn-/view?usp=sharing', '_blank')}
               >
                 <Download className="w-4 h-4" />
                 Resume
@@ -1136,6 +1151,9 @@ export default function Home() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-1000"></div>
                 <div className="relative bg-white/90 rounded-2xl border border-gray-200 p-8 transform-gpu transition-all duration-300 hover:scale-105 shadow-lg">
                   <h3 className="text-2xl font-bold mb-6 text-gray-900">Let's Start a Conversation</h3>
+                  <p className="text-sm text-yellow-800 bg-yellow-50 border border-yellow-200 p-3 rounded-md mb-4">
+                    Note: the contact form is not working right now — please use the Resume or project links to reach out.
+                  </p>
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="group">
