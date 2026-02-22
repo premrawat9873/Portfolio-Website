@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "NEXT_DISABLE_ESLINT=1 NEXT_DISABLE_TYPECHECK=1 next dev --turbopack",
+    "dev": "cross-env NEXT_DISABLE_ESLINT=1 NEXT_DISABLE_TYPECHECK=1 next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "oxlint",
@@ -19,12 +19,13 @@
     "react-dom": "^19.2.1",
     "react-server-dom-turbopack": "19.2.1",
     "react-server-dom-webpack": "19.2.1",
-    "resend": "^6.5.2"
+    "resend": "^6.9.2"
   },
   "devDependencies": {
     "@types/node": "^20.19.25",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "cross-env": "^10.1.0",
     "oxlint": "^1.31.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.18",

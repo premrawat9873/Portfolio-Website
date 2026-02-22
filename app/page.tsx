@@ -42,11 +42,12 @@ const skillCategories = [
     title: "Frontend",
     color: "primary",
     skills: [
-      { name: "React.js", level: 90 },
-      { name: "HTML5", level: 95 },
-      { name: "CSS3", level: 90 },
-      { name: "Tailwind CSS", level: 85 },
-      { name: "JavaScript", level: 90 },
+      { name: "React", level: 90 },
+      { name: "Next.js", level: 88 },
+      { name: "TypeScript", level: 85 },
+      { name: "HTML", level: 95 },
+      { name: "CSS", level: 90 },
+      { name: "Tailwind CSS", level: 88 },
     ],
   },
   {
@@ -54,38 +55,38 @@ const skillCategories = [
     color: "accent",
     skills: [
       { name: "Node.js", level: 85 },
-      { name: "Express.js", level: 85 },
-      { name: "REST APIs", level: 88 },
-      { name: "JWT Auth", level: 80 },
+      { name: "Express.js", level: 82 },
+      { name: "Cloudflare Workers", level: 72 },
     ],
   },
   {
-    title: "Database",
+    title: "Databases & ORM",
     color: "primary",
     skills: [
+      { name: "PostgreSQL", level: 80 },
       { name: "MongoDB", level: 85 },
-      { name: "MySQL", level: 75 },
-      { name: "Mongoose", level: 82 },
+      { name: "Prisma", level: 75 },
     ],
   },
   {
-    title: "Languages",
+    title: "DevOps & Cloud",
     color: "accent",
     skills: [
-      { name: "JavaScript", level: 90 },
-      { name: "TypeScript", level: 75 },
-      { name: "C/C++", level: 80 },
-      { name: "Python", level: 70 },
+      { name: "Docker", level: 78 },
+      { name: "AWS EC2", level: 74 },
+      { name: "S3", level: 72 },
+      { name: "CloudFront", level: 68 },
     ],
   },
   {
-    title: "Tools & Others",
+    title: "Tools & Workflow",
     color: "primary",
     skills: [
-      { name: "Git & GitHub", level: 88 },
-      { name: "Recoil", level: 75 },
-      { name: "Zod", level: 78 },
+      { name: "Git", level: 90 },
+      { name: "GitHub", level: 90 },
       { name: "VS Code", level: 95 },
+      { name: "REST APIs", level: 88 },
+      { name: "SDLC", level: 80 },
     ],
   },
 ];
@@ -363,52 +364,53 @@ export default function Home() {
   const projects: Project[] = useMemo(
     () => [
       {
-        title: "MokeMoney",
-        subtitle: "Digital Payment Platform",
+        title: "CivicChain",
+        subtitle: "Transparent Civic Complaint & Accountability Platform",
         description:
-          "A full-stack digital wallet application enabling seamless peer-to-peer money transfers with secure authentication and real-time balance updates.",
+          "Location-aware platform for reporting, tracking, and auditing municipal complaints with an immutable blockchain audit layer.",
         href: "#",
-        tags: ["MERN", "JWT", "MongoDB"],
-        icon: "💰",
+        tags: ["React", "TypeScript", "PostgreSQL", "Blockchain", "Supabase", "Geolocation"],
+        icon: "🏛️",
         features: [
-          "Peer-to-peer transactions",
-          "Secure JWT authentication",
-          "Real-time balance updates",
-          "User search functionality"
+          "Built a location-aware civic complaint platform for reporting and tracking municipal issues.",
+          "Implemented automatic duplicate detection using category and latitude/longitude matching.",
+          "Designed citizen-confirmed resolution flow to prevent premature complaint closure.",
+          "Developed role-based dashboards for municipal and state authorities with analytics and voting.",
+          "Integrated blockchain audit layer for immutable logging of verified complaint resolutions.",
+          "Used Supabase as a unified backend for authentication, data storage, and scalability.",
         ],
-        links: { code: "https://github.com/premrawat9873/Wallet_Website", demo: "https://project.prem-rawat.me" }
+        links: { code: "#" },
       },
       {
-        title: "Course Selling API",
-        subtitle: "Educational Platform",
+        title: "MokeMoney",
+        subtitle: "MERN Stack Digital Wallet",
         description:
-          "Complete backend API for online course platform with role-based access control and comprehensive admin panel for content management.",
+          "Peer-to-peer digital wallet with secure authentication and ACID-safe transfers backed by MongoDB/Mongoose.",
+        href: "#",
+        tags: ["MERN", "JWT", "MongoDB", "Mongoose"],
+        icon: "💸",
+        features: [
+          "Implemented JWT-based authentication with protected routes and secure session handling.",
+          "Reduced redundant API calls by 70% using client-side caching.",
+          "Ensured ACID-safe wallet transfers using Mongoose atomic transactions.",
+          "Optimized database load by 60% with server-side pagination.",
+        ],
+        links: { code: "https://github.com/premrawat9873/Wallet_Website" },
+      },
+      {
+        title: "Online-Course-Selling-API",
+        subtitle: "Course Platform Backend",
+        description:
+          "RESTful backend for selling online courses with JWT authentication and admin workflows for course management.",
         href: "#",
         tags: ["Node.js", "Express.js", "MongoDB"],
-        icon: "📚",
+        icon: "🎓",
         features: [
-          "JWT authentication system",
-          "Role-based access control",
-          "Admin panel APIs",
-          "Course content management"
+          "Built REST APIs with JWT authentication and role-based access control (Admin/User).",
+          "Developed admin workflows for course creation, updates, and management.",
+          "Implemented secure user flows for signup, purchase, and protected content access.",
         ],
-        links: { code: "https://github.com/premrawat9873/Online-Course-Selling-API" }
-      },
-      {
-        title: "Algorithm Visualizer",
-        subtitle: "Educational Tool",
-        description:
-          "Interactive web application for visualizing compression algorithms with real-time execution steps and comparative analysis tools.",
-        href: "#",
-        tags: ["React.js", "JavaScript", "Tailwind"],
-        icon: "🔧",
-        features: [
-          "Huffman coding visualization",
-          "LZW compression display",
-          "Real-time algorithm steps",
-          "Interactive comparison tools"
-        ],
-        links: { code: "https://github.com/premrawat9873/Huffman-LZW-Visualizer", demo: "https://daa.prem-rawat.me/" }
+        links: { code: "https://github.com/premrawat9873/Online-Course-Selling-API" },
       },
     ],
     []
