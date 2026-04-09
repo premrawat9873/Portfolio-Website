@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import type { NextRequest } from 'next/server';
 
-const resend = new Resend(process.env.RESEND_API_KEY ?? '');
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 export async function GET() {
   // Respond quickly without performing network calls to avoid client aborts
@@ -39,22 +39,26 @@ export async function POST(req: NextRequest) {
     }
 
     // Fire-and-forget to avoid keeping the request open (prevents ECONNRESET on client abort)
-    void resend.emails.send({
-      from: 'no-reply@prem-rawat.me',
-      to: 'premrawat.dev@gmail.com',
-      subject: `New contact form submission from ${name}`,
-      text: `From: ${name} <${email}>\n\nMessage:\n${message}`,
-      reply_to: email,
-    }).then((result) => {
-      console.log('Contact email queued/sent:', result);
-    }).catch((err: any) => {
-      console.error('Resend contact send error:', {
-        message: err?.message,
-        name: err?.name,
-        code: err?.code,
-        stack: err?.stack
+    if (resend) {
+      void resend.emails.send({
+        from: 'no-reply@prem-rawat.me',
+        to: 'premrawat.dev@gmail.com',
+        subject: `New contact form submission from ${name}`,
+        text: `From: ${name} <${email}>\n\nMessage:\n${message}`,
+        reply_to: email,
+      }).then((result) => {
+        console.log('Contact email queued/sent:', result);
+      }).catch((err: any) => {
+        console.error('Resend contact send error:', {
+          message: err?.message,
+          name: err?.name,
+          code: err?.code,
+          stack: err?.stack
+        });
       });
-    });
+    } else {
+      console.warn('Resend API key not configured - email not sent');
+    }
 
     return NextResponse.json({
       success: true,
